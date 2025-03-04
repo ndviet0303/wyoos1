@@ -10,17 +10,9 @@
 #include <drivers/mouse.h>
 #include <drivers/vga.h>
 #include <drivers/ata.h>
-#include <gui/desktop.h>
-#include <gui/window.h>
 #include <multitasking.h>
 
 #include <drivers/amd_am79c973.h>
-#include <net/etherframe.h>
-#include <net/arp.h>
-#include <net/ipv4.h>
-#include <net/icmp.h>
-#include <net/udp.h>
-#include <net/tcp.h>
 
 
 // #define GRAPHICSMODE
@@ -30,8 +22,6 @@ using namespace myos;
 using namespace myos::common;
 using namespace myos::drivers;
 using namespace myos::hardwarecommunication;
-using namespace myos::gui;
-using namespace myos::net;
 
 
 
