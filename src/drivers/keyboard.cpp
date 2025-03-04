@@ -56,11 +56,26 @@ uint32_t KeyboardDriver::HandleInterrupt(uint32_t esp)
     if(handler == 0)
         return esp;
     
+        bool shiftPressed;
+    if (key >= 0x80) {  // Phím nhả (break code)
+        switch (key)
+        {
+            case 0xAA: // Left Shift nhả
+            case 0xB6: // Right Shift nhả
+                shiftPressed = false;
+                break;
+        }
+        return esp;  // Không xử lý thêm vì chỉ cần ghi nhận nhả phím
+    }
+    
     if(key < 0x80)
     {
-        bool shiftPressed = false;
         switch(key)
         {
+            case 0x2A: // Left Shift
+            case 0x36: // Right Shift
+                shiftPressed = true;
+                break;
             case 0x4F:
             case 0x02: handler->OnKeyDown('1'); break;
             case 0x50:
